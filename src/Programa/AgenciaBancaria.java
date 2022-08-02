@@ -24,8 +24,9 @@ public class AgenciaBancaria {
         System.out.println("|                 Opção 2 - Depositar                |");
         System.out.println("|                 Opção 3 - Sacar                    |");
         System.out.println("|                 Opção 4 - Transferir               |");
-        System.out.println("|                 Opção 5 - Listar                   |");
-        System.out.println("|                 Opção 6 - Sair                     |");
+        System.out.println("|                 Opção 5 - Consultar Saldo          |");
+        System.out.println("|                 Opção 6 - Listar                   |");
+        System.out.println("|                 Opção 7 - Sair                     |");        
         System.out.println("------------------------------------------------------");
 
         int operacao = input.nextInt();;
@@ -48,13 +49,17 @@ public class AgenciaBancaria {
                 break;
 
             case 5:
+                consultaSaldo();
+                break;
+                
+            case 6:
                 listarContas();
                 break;
 
-            case 6:
-                System.out.println("Flw é nóis!");
-                System.exit(0); // para o sistema
-
+            case 7:
+                System.out.println("Obrigado Volte sempre!");
+                System.exit(0); // para o sistema                
+            
             default:
                 System.out.println("Opção inválida!");
                 operacoes();
@@ -79,7 +84,10 @@ public class AgenciaBancaria {
         Conta conta = new Conta(cliente);
 
         contasBancarias.add(conta);
-        System.out.println("--- Sua conta foi criada com sucesso! ---");
+        System.out.println("\n");
+        System.out.println("| --- Sua conta foi criada com sucesso!     ---|");
+        System.out.println("| --- O numero de sua nova conta e : [ " +conta.getNumeroConta()+"º ] ---|");
+        System.out.println("\n");
 
         operacoes();
 
@@ -173,5 +181,31 @@ public class AgenciaBancaria {
         }
 
         operacoes();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void consultaSaldo() {
+    	System.out.println("Número da conta: ");
+        int numeroConta = input.nextInt();
+        Conta conta = encontrarConta(numeroConta);
+        Double valorSaldo = conta.getSaldo();
+        String extrato = Utils.doubleToString(valorSaldo);
+       
+        System.out.println("-------------- SALDO ---------------------------");
+        System.out.println(" Olá: "+conta.getClient().getName()+"          ");
+        System.out.println(" Saldo atualizado em conta e de : R$ "+ extrato);
+        System.out.println("------------------------------------------------");
+        System.out.println("\n");
+         operacoes();
+    	
     }
 }

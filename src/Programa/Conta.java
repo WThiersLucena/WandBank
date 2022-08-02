@@ -39,11 +39,11 @@ public class Conta {
 
     public String toString() {
 
-        return "\nBank account: " + this.getNumeroConta() +
-                "\nCliente: " + this.pessoa.getName() +
-                "\nCPF: " + this.pessoa.getCpf() +
-                "\nEmail: " + this.pessoa.getEmail() +
-                "\nSaldo: " + Utils.doubleToString(this.getSaldo()) +
+        return "\n Bank account: " + this.getNumeroConta() +
+                "\n Cliente: " + this.pessoa.getName() +
+                "\n CPF: " + this.pessoa.getCpf() +
+                "\n Email: " + this.pessoa.getEmail() +
+                "\n Saldo: " + Utils.doubleToString(this.getSaldo()) +
                 "\n" ;
     }
 
