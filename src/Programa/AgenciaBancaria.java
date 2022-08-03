@@ -1,5 +1,7 @@
 package Programa;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -199,9 +201,13 @@ public class AgenciaBancaria {
         Conta conta = encontrarConta(numeroConta);
         Double valorSaldo = conta.getSaldo();
         String extrato = Utils.doubleToString(valorSaldo);
-       
-        System.out.println("-------------- SALDO ---------------------------");
-        System.out.println(" Olá: "+conta.getClient().getName()+"          ");
+        
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        
+        
+        System.out.println("        "+dtf.format(LocalDateTime.now())); 
+        System.out.println("-------------- SALDO ---------------------------");           
+        System.out.println(" Olá: "+conta.getClient().getName());
         System.out.println(" Saldo atualizado em conta e de : R$ "+ extrato);
         System.out.println("------------------------------------------------");
         System.out.println("\n");
